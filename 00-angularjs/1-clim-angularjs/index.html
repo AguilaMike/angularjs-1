@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="climAngularApp" ng-controller="ClimAngularCtrl as vm">
+
+<head>
+	<title>ClimAngularJS</title>
+	<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+	<meta charset="utf-8" />
+	<meta lang="es" />
+	<meta name="description" content="Tutorial para una aplicación sencilla pero completa en AngularJS por Alberto Basalo" />
+	<meta name="author" content="Alberto Basalo @ Ágora Binaria" />
+	<meta name="application-name" content="ClimAngularJS" />
+	<meta name="Keywords" content="AngularJS, ejemplo, tutorial, curso, ng-repeat, filter, $http" />
+	<link rel="author" href="https://plus.google.com/+AlbertoBasalo71" />
+</head>
+
+<body class="container-fluid">
+	<header>
+		<h1>ClimAngularJS: El clima en AngularJS</h1>
+	</header>
+	<section>
+		<div class="form-inline">
+			<input class="form-control" type="text" ng-model="vm.city_name" />
+			<!-- Directiva ng-options con una expresión que recorre un lista generando las opciones del desplegable -->
+			<select class="form-control" ng-model="vm.country_code" ng-options="country.code as country.name for country in vm.countries"></select>
+			<button class="btn btn-primary" ng-click="vm.getForecast()">Forecast</button>
+		</div>
+		<hr>
+		<div class="form-inline">
+			<span> Ver sólo días con clima según el filtro : </span>
+			<input type="text" class="form-control" ng-model="vm.search_weather" />
+		</div>
+		<hr>
+		<ul class="list-unstyled">
+			<!-- Directiva ng-repeat recorre un array y genera elementos para cada elemento-->
+			<!-- El operador | actúa como un pipe linux enviando contenido al siguiente comando, en este caso un filtro-->
+			<li ng-repeat="day in vm.forecast.list | filter:vm.search_weather">
+				<!-- Dentro se tratabaja contra el iterador (day) definido en la expresión superior-->
+				<!-- Aquí vemos ejemplos de otros filtros como uppercase y date-->
+				<span>{{ day.dt * 1000| date:'EEEE, dd-MMM-yyyy' }} </span>
+				<!--  Se pueden interpolar datos en cualquier sitio-->
+				<span name="icon">
+                    <img ng-src="http://openweathermap.org/img/w/{{day.weather[0].icon}}.png" />
+                </span>
+				<span name="temp">{{day.temp.day}} ºC</span>
+				<span name="description">{{day.weather[0].description | uppercase}}</span>
+				<hr>
+			</li>
+		</ul>
+	</section>
+	<footer>
+		<hr>
+		<p>Código de ejemplo creado por <a href="https://twitter.com/albertobasalo">Alberto Basalo</a> de <a href="http://agorabinaria.com">Ágora Binaria</a>
+		</p>
+		<p>Accede a este y otros contenidos formativos en <a href="https://github.com/orgs/AcademiaBinaria/dashboard">GitHub-AcademiaBinaria</a>
+		</p>
+		<p>API provided by <a href="http://openweathermap.org/api">Openweathermap</a>
+		</p>
+	</footer>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+	<!-- En este ejemplo, la lógica está en su propio fichero javascript.-->
+	<script src="app.js"></script>
+</body>
+
+</html>
