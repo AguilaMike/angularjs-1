@@ -21,8 +21,11 @@
 		<div class="form-inline">
 			<input class="form-control" type="text" ng-model="vm.city_name" />
 			<!-- Directiva ng-options con una expresión que recorre un lista generando las opciones del desplegable -->
-			<select class="form-control" ng-model="vm.country_code" ng-options="country.code as country.name for country in vm.countries"></select>
-			<button class="btn btn-primary" ng-click="vm.getForecast()">Forecast</button>
+			<select class="form-control" ng-model="vm.country_code" 
+			    
+			ng-options="country.code as country.name for country in vm.countries"></select>
+			<button class="btn btn-primary" 
+			ng-click="vm.getForecast()">Forecast</button>
 		</div>
 		<hr>
 		<div class="form-inline">
@@ -30,7 +33,8 @@
 			<input type="text" class="form-control" ng-model="vm.search_weather" />
 		</div>
 		<hr>
-		<ul class="list-unstyled">
+		<ul clas
+		s="list-unstyled">
 			<!-- Directiva ng-repeat recorre un array y genera elementos para cada elemento-->
 			<!-- El operador | actúa como un pipe linux enviando contenido al siguiente comando, en este caso un filtro-->
 			<li ng-repeat="day in vm.forecast.list | filter:vm.search_weather">

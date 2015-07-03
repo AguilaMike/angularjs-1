@@ -26,8 +26,8 @@
             </div>
             <div class="col-xs-8 col-sm-4 placeholder">
                 <h1>
-                    <span class="label " ng-class="{'label-success': caja.balance()>=0 , 'label-danger' : caja.balance()<0}">
-                        {{ caja.balance() | number:2 }} €
+                    <span class="label " ng-class="{'label-success': caja.balance>=0 , 'label-danger' : caja.balance<0}">
+                        {{ caja.balance | number:2 }} €
                     </span>
                 </h1>
                 <h4>Balance</h4>
