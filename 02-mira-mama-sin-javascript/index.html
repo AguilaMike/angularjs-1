@@ -105,9 +105,7 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                                                 ng-options="categoria for categoria in maestros.categoriasIngresos"></select>
                                         <select ng-hide="nuevoMovimiento.esIngreso" name="categoria"
                                                 ng-model="nuevoMovimiento.categoria"
-                ng-options="categoria for categoria in maestros.categoriasGastos">
-                    
-                </select>
+                                                ng-options="categoria for categoria in maestros.categoriasGastos"></select>
                                     </div>
                                 </div>
                             </div>
@@ -130,14 +128,14 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                             <!-- La directiva ng-click está pensada para llamar a funciones, pero admite expresiones complejas   -->
                             <!--En este caso, y sólo como ejemplo porque es muy mala práctica, lleva todo el peso de la lógica-->
                             <button style="margin-top: 20px" type="button" class="btn btn-lg btn-primary"
-            ng-click="
-            total.ingresos=total.ingresos + (nuevoMovimiento.esIngreso * nuevoMovimiento.importe);
-            total.gastos=total.gastos + (nuevoMovimiento.esGasto * nuevoMovimiento.importe);
-           total.balance=total.ingresos - total.gastos;
-           movimientos.push({
-                fecha:nuevoMovimiento.fecha,
-                tipo:nuevoMovimiento.esIngreso && 'Ingreso' || 'Gasto',
-                categoria: nuevoMovimiento.categoria, importe : nuevoMovimiento.importe});
+                               ng-click="
+                               total.ingresos=total.ingresos + (nuevoMovimiento.esIngreso * nuevoMovimiento.importe);
+                               total.gastos=total.gastos + (nuevoMovimiento.esGasto * nuevoMovimiento.importe);
+                               total.balance=total.ingresos - total.gastos;
+                               movimientos.push({
+                               		fecha:nuevoMovimiento.fecha,
+                               		tipo:nuevoMovimiento.esIngreso && 'Ingreso' || 'Gasto',
+                               		categoria: nuevoMovimiento.categoria, importe : nuevoMovimiento.importe});
 							   nuevoMovimiento.importe=0">
                                 <span>Guardar {{nuevoMovimiento.esIngreso && 'Ingreso' || 'Gasto' }}</span>
                             </button>
@@ -168,7 +166,7 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                 </thead>
                 <tbody>
                     <!-- ng-repeat permite filtrar y ordenar los registros-->
-                    <tr ng-repeat="movimiento in movimientos | filter:{categoria:valorBuscado} | orderBy:campo:sentido">
+                    <tr ng-repeat="movimiento in movimientos | filter:valorBuscado | orderBy:campo:sentido">
                       <!--dentro del ambiente crado por la directiva, accedemos directamente al iterador recién definido-->
                         <td class="text-left">{{movimiento.fecha | date}}</td>
                         <td class="text-left">{{movimiento.tipo}}</td>
