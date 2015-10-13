@@ -4,6 +4,7 @@
 <!-- En este ejercicio incrustamos toda la lógica dentro de html -->
 <!-- Para ello llevamos al extremo el uso de directivas como ng-init y ng-click -->
 <!-- Esta es una práctica muy poco recomendable y que sólo se usa a modo de introducción de las capacidades declarativas de AngularJS -->
+
 <head>
 
     <title>Control de Caja</title>
@@ -19,6 +20,7 @@
     <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <!-- Directiva para inicialización del viewmodel -->
+
 <body ng-init="nuevoMovimiento={esIngreso:1,esGasto:0, importe:0};
                total={ingresos:0, gastos:0, balance :0};
                maestros={
@@ -26,8 +28,7 @@
                 	categoriasGastos:['Hipotéca','Compras', 'Impuestos']
                 };
                movimientos=[];
-               campo='fecha'; sentido=1;
-               valorBuscado=''">
+               valorBuscado=''; campoOrden='fecha'; sentidoOrden=1;">
     <div class="container">
         <div class="text-center">
             <h1>Controla tu Cash Flow</h1>
@@ -81,15 +82,11 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                                     <label class="control-label" for="tipo">Tipo</label>
                                     <div class="controls">
                                         <div class="btn-group">
-                                          <!--Con ng-click ejecutamos acciones en respuesta al usuario-->
-                                            <button type="button" class="btn btn-success"
-                                                    ng-class="{'active':nuevoMovimiento.esIngreso}"
-                                                    ng-click="nuevoMovimiento.esIngreso=1; nuevoMovimiento.esGasto=0">
+                                            <!--Con ng-click ejecutamos acciones en respuesta al usuario-->
+                                            <button type="button" class="btn btn-success" ng-class="{'active':nuevoMovimiento.esIngreso}" ng-click="nuevoMovimiento.esIngreso=1; nuevoMovimiento.esGasto=0">
                                                 <span ng-class="{'small':nuevoMovimiento.esGasto}">+ Ingreso</span>
                                             </button>
-                                            <button type="button" class="btn btn-danger"
-                                                    ng-class="{'active':nuevoMovimiento.esGasto}"
-                                                    ng-click="nuevoMovimiento.esIngreso=0; nuevoMovimiento.esGasto=1">
+                                            <button type="button" class="btn btn-danger" ng-class="{'active':nuevoMovimiento.esGasto}" ng-click="nuevoMovimiento.esIngreso=0; nuevoMovimiento.esGasto=1">
                                                 <span ng-class="{'small':nuevoMovimiento.esIngreso}">- Gasto</span>
                                             </button>
                                         </div>
@@ -100,12 +97,8 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                                     <div class="controls">
                                         <!-- ng-show y su contrario ng-hide muestran u ocultan en función de un valor-->
                                         <!--Los selectores se llenan de opciones dinámicamente-->
-                                        <select ng-show="nuevoMovimiento.esIngreso" name="categoria"
-                                                ng-model="nuevoMovimiento.categoria"
-                                                ng-options="categoria for categoria in maestros.categoriasIngresos"></select>
-                                        <select ng-hide="nuevoMovimiento.esIngreso" name="categoria"
-                                                ng-model="nuevoMovimiento.categoria"
-                                                ng-options="categoria for categoria in maestros.categoriasGastos"></select>
+                                        <select ng-show="nuevoMovimiento.esIngreso" name="categoria" ng-model="nuevoMovimiento.categoria" ng-options="categoria for categoria in maestros.categoriasIngresos"></select>
+                                        <select ng-hide="nuevoMovimiento.esIngreso" name="categoria" ng-model="nuevoMovimiento.categoria" ng-options="categoria for categoria in maestros.categoriasGastos"></select>
                                     </div>
                                 </div>
                             </div>
@@ -127,8 +120,7 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                         <div class="text-right">
                             <!-- La directiva ng-click está pensada para llamar a funciones, pero admite expresiones complejas   -->
                             <!--En este caso, y sólo como ejemplo porque es muy mala práctica, lleva todo el peso de la lógica-->
-                            <button style="margin-top: 20px" type="button" class="btn btn-lg btn-primary"
-                               ng-click="
+                            <button style="margin-top: 20px" type="button" class="btn btn-lg btn-primary" ng-click="
                                total.ingresos=total.ingresos + (nuevoMovimiento.esIngreso * nuevoMovimiento.importe);
                                total.gastos=total.gastos + (nuevoMovimiento.esGasto * nuevoMovimiento.importe);
                                total.balance=total.ingresos - total.gastos;
@@ -147,7 +139,7 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
             {{movimientos}}
             <hr>
             <!-- Uno de los prinipales caso de uso al hacer intefaces es mostrar tablas de datos-->
-			      <!-- Con AngularJS es muy sencillo. Su potente directiva ng-repeat hace todo el trabajo sucio-->
+            <!-- Con AngularJS es muy sencillo. Su potente directiva ng-repeat hace todo el trabajo sucio-->
             <p class="lead">Estos son tus movimientos recientes.</p>
             <br>
             <label class="control-label" for="filtro">Filtrar por:</label>
@@ -156,18 +148,18 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                 <thead>
                     <!-- Cabecera de tabla que sirve para ordenar par varios campos y rotar el sentido de ordenación-->
                     <tr>
-                        <th><a href="" ng-click="campo = 'fecha'; sentido = !sentido">Fecha</a>
+                        <th><a href="" ng-click="campoOrden = 'fecha'; sentidoOrden = !sentidoOrden">Fecha</a>
                         </th>
                         <th>Tipo</th>
                         <th>Categoría</th>
-                        <th><a href="" ng-click="campo = 'importe'; sentido = !sentido">Importe</a>
+                        <th><a href="" ng-click="campoOrden = 'importe'; sentidoOrden = !sentidoOrden">Importe</a>
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     <!-- ng-repeat permite filtrar y ordenar los registros-->
-                    <tr ng-repeat="movimiento in movimientos | filter:valorBuscado | orderBy:campo:sentido">
-                      <!--dentro del ambiente crado por la directiva, accedemos directamente al iterador recién definido-->
+                    <tr ng-repeat="movimiento in movimientos | filter:valorBuscado | orderBy:campoOrden:sentidoOrden">
+                        <!--dentro del ambiente creado por la directiva, accedemos directamente al iterador recién definido-->
                         <td class="text-left">{{movimiento.fecha | date}}</td>
                         <td class="text-left">{{movimiento.tipo}}</td>
                         <td class="text-left">{{movimiento.categoria}}</td>

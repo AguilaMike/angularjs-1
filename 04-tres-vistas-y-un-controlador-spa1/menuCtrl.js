@@ -4,5 +4,5 @@
             return ruta === $location.path();
         }
     }
-    angular.module('controlCajaApp').controller('MenuCtrl',menuCtrl);
+    angular.module('cashFlow').controller('MenuCtrl',menuCtrl);
 }());

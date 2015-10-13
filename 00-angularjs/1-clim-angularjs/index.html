@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html ng-app="climAngularApp" ng-controller="ClimAngularCtrl as vm">
+<html ng-app="climAngular" ng-controller="ClimAngularCtrl as vm">
 
 <head>
 	<title>ClimAngularJS</title>
@@ -33,16 +32,16 @@
 		<ul class="list-unstyled">
 			<!-- Directiva ng-repeat recorre un array y genera elementos para cada elemento-->
 			<!-- El operador | actúa como un pipe linux enviando contenido al siguiente comando, en este caso un filtro-->
-			<li ng-repeat="day in vm.forecast.list | filter:vm.search_weather">
+			<li ng-repeat="aDay in vm.forecast.list | filter:vm.search_weather">
 				<!-- Dentro se tratabaja contra el iterador (day) definido en la expresión superior-->
 				<!-- Aquí vemos ejemplos de otros filtros como uppercase y date-->
-				<span>{{ day.dt * 1000| date:'EEEE, dd-MMM-yyyy' }} </span>
+				<span>{{ aDay.dt * 1000| date:'EEEE, dd-MMM-yyyy' }} </span>
 				<!--  Se pueden interpolar datos en cualquier sitio-->
 				<span name="icon">
-                    <img ng-src="http://openweathermap.org/img/w/{{day.weather[0].icon}}.png" />
+                    <img ng-src="http://openweathermap.org/img/w/{{aDay.weather[0].icon}}.png" />
                 </span>
-				<span name="temp">{{day.temp.day}} ºC</span>
-				<span name="description">{{day.weather[0].description | uppercase}}</span>
+				<span name="temp">{{aDay.temp.day}} ºC</span>
+				<span name="description">{{aDay.weather[0].description | uppercase}}</span>
 				<hr>
 			</li>
 		</ul>

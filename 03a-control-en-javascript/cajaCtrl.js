@@ -37,8 +37,9 @@
                 }
                 // creamos una copia de los valores del actual formulario
                 var auxCopyMov = angular.copy(vm.nuevoMovimiento);
+                // USamos funciones de transformación
                 auxCopyMov.tipo = vm.tipo(auxCopyMov);
-                // Se almacena un copia del nuevo movimiento, y se reutiliza la variable para crear otros
+                // Se almacena la copia del nuevo movimiento, y se reutiliza la variable para crear otros
                 vm.movimientos.push(auxCopyMov);
                 // El formulario se limpia y la variable se reutiliza
                 vm.nuevoMovimiento.importe = 0;
@@ -54,9 +55,8 @@
         }
 
         // Accedemos al módulo por su nombre a través de la única variable global 'angular'
-        var modulo = angular.module('controlCajaApp');
         // En dicho módulo creamos un controlador, cuyo código es la función previamente definida
-        angular.module('controlCajaApp').controller('CajaCtrl', cajaCtrl);
+        angular.module('cashFlow').controller('CajaCtrl', cajaCtrl);
 
     }
 

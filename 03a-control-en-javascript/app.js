@@ -1,2 +1,2 @@
-// Declaración de un nuevo módulo sin dependencias, llamado 'controlCajaApp'
-angular.module('controlCajaApp', []);
+// Declaración de un nuevo módulo sin dependencias, llamado 'cashFlow'
+angular.module('cashFlow', []);

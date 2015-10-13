@@ -1,8 +1,7 @@
 // Vemos como usar una dependencia de otro módulo
 // En este caso el módulo es 'ngRoute' 
 // Que viene en el fichero angular-route.min.js
-var dependencias = ['ngRoute'];
-angular.module('controlCajaApp', dependencias);
+angular.module('cashFlow', ['ngRoute']);
 
 // Además de controladores, un módulo puede tener funciones de configuración
 // Estas se ejecutarán al arrancar la aplicación
@@ -34,4 +33,4 @@ function configurarRutas($routeProvider) {
 }
 
 // Se registra la función como un configurador del módulo
-angular.module('controlCajaApp').config(configurarRutas);
+angular.module('cashFlow').config(configurarRutas);

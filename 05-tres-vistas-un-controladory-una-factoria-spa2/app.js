@@ -1,6 +1,6 @@
-angular.module('controlCajaApp', ['ngRoute']);
+angular.module('cashFlow', ['ngRoute']);
 
-angular.module('controlCajaApp').config(function ($routeProvider) {
+angular.module('cashFlow').config(function ($routeProvider) {
     $routeProvider
         .when('/', {
             controller: 'CajaCtrl',

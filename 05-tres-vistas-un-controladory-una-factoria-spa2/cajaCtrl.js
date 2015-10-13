@@ -25,5 +25,5 @@
         vm.balance = movimientosFactory.balance();
         vm.tipo = movimientosFactory.tipo;
     }
-    angular.module('controlCajaApp').controller('CajaCtrl', cajaCtrl);
+    angular.module('cashFlow').controller('CajaCtrl', cajaCtrl);
 }());

@@ -17,21 +17,25 @@
         // Estos objetos pueden contener funciones de lógica reutilizables     
         var result  =   {};
        
+        /** lista de los movimientos actuales */
         result.getMovimientos =   function ()  {
             return movimientos;
         };
+        /** objeto total actual */
         result.getTotal =   function ()  {
             return total;
         };
+        /** guardar un nuevo movimiento */
         result.postMovimiento =   function (movimiento)  {
             movimientos.push(movimiento);
             total.ingresos += movimiento.esIngreso * movimiento.importe;
             total.gastos += movimiento.esGasto * movimiento.importe;
         };
-        
+        /** acceso al balance */
         result.balance = function () {
             return total.ingresos - total.gastos
         }
+        /** función auxiliar para cabiar de movimiento */
         result.tipo = function (movimiento) {
             return movimiento.esIngreso && 'Ingreso' || 'Gasto'
         }
@@ -41,6 +45,6 @@
         return result;
     };   
     // se registran dentro de un módulo con la palabra clave factory
-    angular.module('controlCajaApp').factory('movimientosFactory', movimientosFactory);
+    angular.module('cashFlow').factory('movimientosFactory', movimientosFactory);
 }());
 

@@ -14,5 +14,5 @@
 
 
     // se registran dentro de un módulo con la palabra clave factory
-    angular.module('controlCajaApp').service('maestrosService', maestrosService);
+    angular.module('cashFlow').service('maestrosService', maestrosService);
 }());

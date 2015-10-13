@@ -1,8 +1,8 @@
 // tenemos que cambiar la dependencia hacia el nuevo módulo
-angular.module('controlCajaApp', ['ui.router']);
+angular.module('cashFlow', ['ui.router']);
 
 // las rutas ahora se maneja con el concepto de estado
-angular.module('controlCajaApp').config(function ($stateProvider) {
+angular.module('cashFlow').config(function ($stateProvider) {
 	// Las rutas pasan a ser opcionales,
     // en la práctica sólo se usan si vienen de aplicaciones externas y por cuestiones de SEO
     $stateProvider

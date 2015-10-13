@@ -1,4 +1,4 @@
-<html lang="es" ng-app="controlCajaApp">
+<html lang="es" ng-app="cashFlow">
 <!--Distribuimos el contenido en tres vistas parciales y un archivo índice (este mismo)
 Cada vista será una 'página' con urls independientes -->
 <head>
@@ -16,7 +16,7 @@ Cada vista será una 'página' con urls independientes -->
 </head>
 
 <body>
-    <!-- Se mantiene el menú de navegación -->
+    <!-- Se crea un menú de navegación -->
     <nav class="navbar navbar-default navbar-fixed-top" role="navigation" ng-controller="MenuCtrl as menu">
         <div class="navbar-inner">
             <div class="container">
@@ -34,6 +34,7 @@ Cada vista será una 'página' con urls independientes -->
             </div>
         </div>
     </nav>
+    
     <!-- El contenido principal se cargará dinámicamente -->
     <!-- De eso se encarga la directiva ng-view en colaboración con el ng-router -->
     <!-- Sólo puede haber un ng-view por página-->
@@ -41,6 +42,9 @@ Cada vista será una 'página' con urls independientes -->
                 <!-- Aquí irá el contenido dinámico -->
                 <!-- Puede ser todo lo complejo que se quiera-->
     </div>
+    
+    
+    
     <!-- JavaScript References -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
     <!-- Referencia a Angular Route que contiene el módulo ngRoute -->

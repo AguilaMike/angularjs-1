@@ -44,5 +44,5 @@
         }
     }
 
-    angular.module('controlCajaApp').controller('CajaCtrl', cajaCtrl);
+    angular.module('cashFlow').controller('CajaCtrl', cajaCtrl);
 }());
