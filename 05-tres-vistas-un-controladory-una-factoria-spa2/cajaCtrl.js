@@ -1,12 +1,12 @@
 (function () {
     // El controlador ahora tiene una dependencia de la factoría
-    // Las dependencias se buscan en nuestro módulo 
+    // Las dependencias se buscan en nuestro módulo
     // o en cualquiera de sus dependencias
     var cajaCtrl = function (movimientosFactory,maestrosService) {
         var vm = this;
-        
+
         vm.titulo = "Controla tu Cash Flow";
-        vm.maestros = maestrosService.categarias;
+        vm.maestros = maestrosService.categorias;
         vm.nuevoMovimiento = {
             esIngreso: 1,
             esGasto: 0,
@@ -22,7 +22,7 @@
             movimientosFactory.postMovimiento(auxCopyMov);
             vm.nuevoMovimiento.importe=0;
         }
-        vm.balance = movimientosFactory.balance();
+        vm.balance = movimientosFactory.balance;
         vm.tipo = movimientosFactory.tipo;
     }
     angular.module('cashFlow').controller('CajaCtrl', cajaCtrl);

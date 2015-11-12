@@ -14,9 +14,9 @@
         };
         // las factorias siempre devuelven objetos, para eso son fábricas
 		// en este caso le llamo result
-        // Estos objetos pueden contener funciones de lógica reutilizables     
+        // Estos objetos pueden contener funciones de lógica reutilizables
         var result  =   {};
-       
+
         /** lista de los movimientos actuales */
         result.getMovimientos =   function ()  {
             return movimientos;
@@ -39,11 +39,11 @@
         result.tipo = function (movimiento) {
             return movimiento.esIngreso && 'Ingreso' || 'Gasto'
         }
-        
+
         // Exponemos funcionalidad devolviendo el objeto creado,
-        // para que el cliente explote sus métodos 
+        // para que el cliente explote sus métodos
         return result;
-    };   
+    };
     // se registran dentro de un módulo con la palabra clave factory
     angular.module('cashFlow').factory('movimientosFactory', movimientosFactory);
 }());

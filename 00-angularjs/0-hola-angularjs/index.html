@@ -1,9 +1,8 @@
-<!--Directiva ng-app para indicarle a AngularJS que debe ejecutarse sobre este documento-->
+﻿<!--Directiva ng-app para indicarle a AngularJS que debe ejecutarse sobre este documento-->
 <html ng-app>
 
 <head>
     <title>Hola AngularJS</title>
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="utf-8" />
     <meta lang="es" />
     <meta name="description" content="Tutorial simple Hola Mundo en AngularJS por Alberto Basalo" />
@@ -16,17 +15,21 @@
 <body class="container-fluid">
     <header>
         <h1>Hola Mundo AngularJS</h1>
-        <h2>uno + uno son {{ 1 + 1}} </h2>
     </header>
     <section>
         <div>
             <span>¿Cómo te llamas? : </span>
-            <!--Directiva ng-model para enlazar la vista con una propiedad del modelo-->
             <input ng-model="tuNombre">
+            <!--Directiva ng-model para enlazar la vista con una propiedad del modelo-->
         </div>
         <br/>
         <!--Interpolación en el contenido de una expresión {{entre llaves}} que usa una propiedadad del modelo-->
         <div class="text-info">Hola {{ tuNombre }}, bienvenido al mundo de AngularJS !!!</div>
+        <!--Multiples Directivas ng-model para enlazar la vista con una ovarias propiedades del modelo-->
+        <input ng-model="numero1">
+        <input ng-model="numero2">
+        <input ng-model="numero2">
+        <h2>uno + uno son {{ numero1*1 + numero2*1}} </h2>
     </section>
     <footer>
         <hr>

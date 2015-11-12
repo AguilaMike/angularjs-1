@@ -1,5 +1,5 @@
 // Vemos como usar una dependencia de otro módulo
-// En este caso el módulo es 'ngRoute' 
+// En este caso el módulo es 'ngRoute'
 // Que viene en el fichero angular-route.min.js
 angular.module('cashFlow', ['ngRoute']);
 
@@ -32,5 +32,39 @@ function configurarRutas($routeProvider) {
         });
 }
 
+
+function suma(a,b){
+    var c= a + b;
+    console.log(c);
+}
+
+angular.module('cashFlow').value('a',5);
+
+angular.module('cashFlow').value('b',7);
+
 // Se registra la función como un configurador del módulo
-angular.module('cashFlow').config(configurarRutas);
+angular.module('cashFlow').config(suma);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

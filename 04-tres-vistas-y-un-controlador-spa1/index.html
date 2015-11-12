@@ -3,7 +3,6 @@
 Cada vista será una 'página' con urls independientes -->
 <head>
     <title>Control de Caja</title>
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="utf-8" />
     <meta lang="es" />
     <meta name="description" content="Ejemplo Control de Caja en AngularJS por Alberto Basalo" />
@@ -12,7 +11,7 @@ Cada vista será una 'página' con urls independientes -->
     <meta name="Keywords" content="AngularJS, ejemplo, tutorial, curso" />
     <link rel="author" href="https://plus.google.com/+AlbertoBasalo71" />
     <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="refs/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -34,7 +33,7 @@ Cada vista será una 'página' con urls independientes -->
             </div>
         </div>
     </nav>
-    
+
     <!-- El contenido principal se cargará dinámicamente -->
     <!-- De eso se encarga la directiva ng-view en colaboración con el ng-router -->
     <!-- Sólo puede haber un ng-view por página-->
@@ -42,16 +41,18 @@ Cada vista será una 'página' con urls independientes -->
                 <!-- Aquí irá el contenido dinámico -->
                 <!-- Puede ser todo lo complejo que se quiera-->
     </div>
-    
-    
-    
+
+
+
     <!-- JavaScript References -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+     <script src="/refs/angular.min.js"></script>
+</head>
     <!-- Referencia a Angular Route que contiene el módulo ngRoute -->
     <!-- Suelen seguir un patrón de nombrado -->
     <!-- angular-nombre-modulo.min.js para el fichero-->
     <!-- y ngNombreModulo para el módulo-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.min.js"></script>
+         <script src="/refs/angular-route.min.js"></script>
+
     <!-- Las vistas parciales no es necesario refrenciarlas en el html -->
     <script src="app.js"></script>
     <script src="menuCtrl.js"></script>

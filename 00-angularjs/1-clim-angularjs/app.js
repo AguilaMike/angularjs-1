@@ -11,10 +11,10 @@ function ClimAngularCtrl($http) {
 	// Esta función necesita una dependencia y la declara como un parametro
 	// AngularJS se encarga de instaciar y proveer los parámetros necesarios
 	// En este caso es $http que es un servicio includo en el paquete básico
-	
-	
+
+
 	var baseurl = "http://api.openweathermap.org/data/2.5/forecast/daily?q=";
-	var jsonp = "&units=metric&callback=JSON_CALLBACK";
+	var jsonp = "&units=metric&APPID=7d596391de2ab0c37b781868265d681e&callback=JSON_CALLBACK";
 
 	var vm = this;
 	// Podemos tener datos precargados
@@ -39,7 +39,7 @@ function ClimAngularCtrl($http) {
 			name: 'Portugal',
 			code: 'PT'
         }];
-		
+
 	// Las funciones pueden, y deben, definirse con su nombre, y publicarlas a través del viewmodel
 	vm.getForecast = getForecast;
 

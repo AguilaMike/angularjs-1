@@ -1,0 +1,68 @@
+<section name="nuevoMovimiento" class="row-fluid">
+    <ab-cabecera>Introduce tus movimientos</ab-cabecera>
+    <form class="form-horizontal text-left">
+        <fieldset>
+            <div class="row-fluid">
+                <div class="col-xs-12 col-sm-6">
+                    <div class="control-group">
+                        <label class="control-label" for="tipo">Tipo</label>
+                        <div class="controls">
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-success" ng-class="{'active':nuevo.nuevoMovimiento.esIngreso}" ng-click="nuevo.nuevoMovimiento.esIngreso=1; nuevo.nuevoMovimiento.esGasto=0">
+                                    <span ng-class="{'small':nuevo.nuevoMovimiento.esGasto}">+ Ingreso</span>
+                                </button>
+                                <button type="button" class="btn btn-danger" ng-class="{'active':nuevo.nuevoMovimiento.esGasto}" ng-click="nuevo.nuevoMovimiento.esIngreso=0; nuevo.nuevoMovimiento.esGasto=1">
+                                    <span ng-class="{'small':nuevo.nuevoMovimiento.esIngreso}">- Gasto</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="categ">Categoría</label>
+                        <div class="controls">
+                            <select ng-show="nuevo.nuevoMovimiento.esIngreso" name="categoria" ng-model="nuevo.nuevoMovimiento.categoria" ng-options="categoria for categoria in nuevo.maestros.categoriasIngresos"></select>
+                            <select ng-show="nuevo.nuevoMovimiento.esGasto" name="categoria" ng-model="nuevo.nuevoMovimiento.categoria" ng-options="categoria for categoria in nuevo.maestros.categoriasGastos"></select>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6">
+                    <div class="control-group">
+                        <label class="control-label" for="fecha">Fecha</label>
+                        <div class="controls">
+                            <input type="date" name="fecha" placeholder="" class="input" ng-model="nuevo.nuevoMovimiento.fecha">
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="importe">Importe</label>
+                        <div class="controls">
+                            <input type="number" name="importe" placeholder="" class="input" ng-model="nuevo.nuevoMovimiento.importe">
+                        </div>
+                    </div>
+                </div>
+                <div class="row-fluid">
+				<div class="col-xs-12 col-sm-6">
+					<div class="control-group">
+						<label class="control-label" for="texto">Texto</label>
+						<div class="controls">
+							<input type="text" name="texto" class="input" ng-model="nuevo.nuevoMovimiento.texto">
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-12 col-sm-6">
+					<div class="control-group">
+						<label class="control-label" for="valoracion">Valoración</label>
+						<div class="controls">
+							<div ab-valoracion valor="nuevo.nuevoMovimiento.valoracion" max="10" solo-lectura="false"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+            </div>
+            <div class="text-right">
+                <button style="margin-top: 20px" type="button" class="btn btn-lg btn-primary" ng-click="nuevo.guardarMovimiento()">
+                    <span>Guardar {{ nuevo.tipo(nuevo.nuevoMovimiento) }}</span>
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</section>

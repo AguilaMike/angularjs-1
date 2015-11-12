@@ -8,7 +8,6 @@
 <head>
 
     <title>Control de Caja</title>
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="utf-8" />
     <meta lang="es" />
     <meta name="description" content="Ejemplo Control de Caja en AngularJS por Alberto Basalo" />
@@ -17,7 +16,7 @@
     <meta name="Keywords" content="AngularJS, ejemplo, tutorial, curso" />
     <link rel="author" href="https://plus.google.com/+AlbertoBasalo71" />
     <!-- Bootstrap core CSS -->
-    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+   <link href="refs/bootstrap.min.css" rel="stylesheet">
 </head>
 <!-- Directiva para inicialización del viewmodel -->
 
@@ -58,7 +57,9 @@
                     <div class="col-xs-8 col-sm-4 placeholder">
                         <h1>
             <!-- ng-class permite asignar clases CSS en función de valores del modelo-->
-                            <span class="label "
+                            <span 
+class="label "
+
 ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}">
                                 {{total.balance | number:2 }} €
                             </span>
@@ -97,8 +98,8 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                                     <div class="controls">
                                         <!-- ng-show y su contrario ng-hide muestran u ocultan en función de un valor-->
                                         <!--Los selectores se llenan de opciones dinámicamente-->
-                                        <select ng-show="nuevoMovimiento.esIngreso" name="categoria" ng-model="nuevoMovimiento.categoria" ng-options="categoria for categoria in maestros.categoriasIngresos"></select>
-                                        <select ng-hide="nuevoMovimiento.esIngreso" name="categoria" ng-model="nuevoMovimiento.categoria" ng-options="categoria for categoria in maestros.categoriasGastos"></select>
+                        <select ng-show="nuevoMovimiento.esIngreso" name="categoria" ng-model="nuevoMovimiento.categoria" ng-options="categoria for categoria in maestros.categoriasIngresos"></select>
+                        <select ng-hide="nuevoMovimiento.esIngreso" name="categoria" ng-model="nuevoMovimiento.categoria" ng-options="categoria for categoria in maestros.categoriasGastos"></select>
                                     </div>
                                 </div>
                             </div>
@@ -137,6 +138,8 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
             </div>
             <!-- Mientras desarrollamos, se puede visualizar a modo de auto-control cualquier objeto e ir viendo su evolución-->
             {{movimientos}}
+            
+            
             <hr>
             <!-- Uno de los prinipales caso de uso al hacer intefaces es mostrar tablas de datos-->
             <!-- Con AngularJS es muy sencillo. Su potente directiva ng-repeat hace todo el trabajo sucio-->
@@ -158,7 +161,7 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
                 </thead>
                 <tbody>
                     <!-- ng-repeat permite filtrar y ordenar los registros-->
-                    <tr ng-repeat="movimiento in movimientos | filter:valorBuscado | orderBy:campoOrden:sentidoOrden">
+<tr ng-repeat="movimiento in movimientos | filter:valorBuscado | orderBy:campoOrden:sentidoOrden">
                         <!--dentro del ambiente creado por la directiva, accedemos directamente al iterador recién definido-->
                         <td class="text-left">{{movimiento.fecha | date}}</td>
                         <td class="text-left">{{movimiento.tipo}}</td>
@@ -178,7 +181,7 @@ ng-class="{'label-success': total.balance>=0 , 'label-danger' : total.balance<0}
     </footer>
     <!-- JavaScript References -->
     <!-- Las referencias a AngularJS puede descargarse a local, pero también están disponibles en CDNs muuy populares -->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+    <script src="/refs/angular.min.js"></script>
 </body>
 
 </html>
