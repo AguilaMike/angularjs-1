@@ -23,6 +23,7 @@
 		};
 
 		result.postMovimiento =   function (movimiento)  {
+			movimiento.tipo = tipo(movimiento);
 			movimientos.push(movimiento);
 			total.ingresos += movimiento.esIngreso * movimiento.importe;
 			total.gastos += movimiento.esGasto * movimiento.importe;
@@ -32,7 +33,7 @@
 			return total.ingresos - total.gastos
 		}
 
-		result.tipo = function (movimiento) {
+		var tipo = function (movimiento) {
 			return movimiento.esIngreso && 'Ingreso' || 'Gasto'
 		}
 

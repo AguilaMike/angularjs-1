@@ -6,65 +6,31 @@ angular.module('cashFlow', ['ngRoute']);
 // Además de controladores, un módulo puede tener funciones de configuración
 // Estas se ejecutarán al arrancar la aplicación
 function configurarRutas($routeProvider) {
-    // Declaramos una dependencia en el parámetro $routeProvider
-    // Este servicio nos provee de métodos para realizar un enrutado en el cliente
-    // Con esto se crean las SPA
-    $routeProvider
-        .when('/', {
-            // Para cada ruta se declara la vista y el controlador asociados
-            controller: 'CajaCtrl',
-            controllerAs: 'caja',
-            templateUrl: 'total.html'
-        })
-        .when('/nuevo', {
-            controller: 'CajaCtrl',
-            controllerAs: 'caja',
-            templateUrl: 'nuevo.html'
-        })
-        .when('/lista', {
-            controller: 'CajaCtrl',
-            controllerAs: 'caja',
-            templateUrl: 'lista.html'
-        })
-        .otherwise({
-            // en caso de peticiones no contempladas podemos redirigir
-            redirectTo: '/'
-        });
+	// Declaramos una dependencia en el parámetro $routeProvider
+	// Este servicio nos provee de métodos para realizar un enrutado en el cliente
+	// Con esto se crean las SPA
+	$routeProvider
+		.when('/', {
+			// Para cada ruta se declara la vista y el controlador asociados
+			controller: 'CajaCtrl',
+			controllerAs: 'caja',
+			templateUrl: 'total.html'
+		})
+		.when('/nuevo', {
+			controller: 'CajaCtrl',
+			controllerAs: 'caja',
+			templateUrl: 'nuevo.html'
+		})
+		.when('/lista', {
+			controller: 'CajaCtrl',
+			controllerAs: 'caja',
+			templateUrl: 'lista.html'
+		})
+		.otherwise({
+			// en caso de peticiones no contempladas podemos redirigir
+			redirectTo: '/'
+		});
 }
-
-
-function suma(a,b){
-    var c= a + b;
-    console.log(c);
-}
-
-angular.module('cashFlow').value('a',5);
-
-angular.module('cashFlow').value('b',7);
 
 // Se registra la función como un configurador del módulo
-angular.module('cashFlow').config(suma);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+angular.module('cashFlow').config(configurarRutas);

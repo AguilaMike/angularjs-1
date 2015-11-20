@@ -1,6 +1,6 @@
 (function () {
 	angular.module('cashFlow').controller('CajaCtrl', cajaCtrl);
-	
+
 	function cajaCtrl(movimientosFactory, maestrosService) {
 		var vm = this;
 
@@ -21,7 +21,6 @@
 			vm.nuevoMovimiento.importe = 0;
 		}
 		vm.balance = movimientosFactory.balance;
-		vm.tipo = movimientosFactory.tipo;
 	}
-	
+
 }());
