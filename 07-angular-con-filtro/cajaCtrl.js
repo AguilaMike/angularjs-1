@@ -19,7 +19,6 @@
 			vm.nuevoMovimiento.importe = 0;
 		}
 		vm.balance = movimientosFactory.balance;
-		vm.tipo = movimientosFactory.tipo;
 	}
 	angular.module('cashFlow').controller('CajaCtrl', cajaCtrl);
 }());
