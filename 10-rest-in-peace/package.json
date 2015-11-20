@@ -1,5 +1,5 @@
 {
-  "name": "rest",
+  "name": "rest api server",
   "version": "0.0.0",
   "description": "rest nodejs angularjs",
   "main": "server.js",
