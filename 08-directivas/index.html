@@ -14,14 +14,16 @@
 	<link href="refs/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body ng-init="texto='tecnocom'">
 	<ab-menu-navegacion></ab-menu-navegacion>
-
+    
 	<ab-contenido></ab-contenido>
-
+    
+    <ab-cabecera >Y ahora {{texto}} va dentro</ab-cabecera>
+    
 	<ab-pie-pagina></ab-pie-pagina>
 
-	<div ab-pie-pagina></div>
+    <div ab-pie-pagina></div>
 
 
 

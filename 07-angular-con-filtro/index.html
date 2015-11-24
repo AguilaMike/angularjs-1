@@ -38,8 +38,10 @@
 	</div>
 
 
-	<span ng-init="texto='hola-Mundo@ANGULAR.es'; movimientos=[{importe:1001}, {importe:999}] "></span>
-	<h1>{{ texto | uppercase | lowercase | abLimpiarCadena | abRecortar:4 }}</h1>
+	<span ng-init="texto='hola-MundoCoruña@ANGULAR.es'; movimientos=[{importe:1001}, {importe:999}] "></span>
+	<h1>{{texto}}</h1>
+    <h1>{{texto | abRecortar:8:true }}</h1>
+    <h1>{{ texto | uppercase | lowercase | abLimpiarCadena | abRecortar:4 }}</h1>
 	<h2>{{movimientos | abGranImporte
 	
 	  }}
