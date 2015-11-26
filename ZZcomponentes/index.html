@@ -1,0 +1,43 @@
+<!--Directiva ng-app para indicarle a AngularJS que debe ejecutarse sobre este documento-->
+<html ng-app="app">
+
+<head>
+    <title>Hola AngularJS</title>
+    <meta charset="utf-8" />
+    <meta lang="es" />
+    <meta name="description" content="Tutorial simple Hola Mundo en AngularJS por Alberto Basalo" />
+    <meta name="author" content="Alberto Basalo @ Ágora Binaria" />
+    <meta name="application-name" content="HolaAngularJS" />
+    <meta name="Keywords" content="AngularJS, ejemplo, tutorial, curso, ng-app" />
+    <link rel="author" href="https://plus.google.com/+AlbertoBasalo71" />
+        <script src="refs/angular.min.js"></script>
+</head>
+
+<body class="container-fluid" >
+    <span>¿Valor del padre? : </span>
+    <input ng-model="valorPadre">
+    <operadora
+               valor="{{valorPadre}}"
+               operacion="resultadoPadre = valorPadre*3"
+               resultado="resultadoPadre">
+    </operadora>
+    <script>
+        angular.module('app',['componentes']);
+
+        angular.module('componentes',[])
+            .directive('operadora',function(){
+            return {
+            template:'<button ng-click="operacion();">Operar</button>  <h1>Resultado:{{valor}} operacion = {{resultado}}</h1>',
+                scope:{
+                    valor : "@",
+                    operacion : "&",
+                    resultado : "="
+                }
+
+            }
+        })
+    </script>
+
+</body>
+
+</html>

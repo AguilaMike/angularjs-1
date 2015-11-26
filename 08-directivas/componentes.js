@@ -5,7 +5,8 @@
         .directive('abContenido', contenido)
         .directive('abCabecera', cabecera)
         .directive('abMenuNavegacion', menuNavegacion)
-        .directive('abFilaMovimiento', filaMovimiento);
+        .directive('abFilaMovimiento', filaMovimiento)
+        .directive('abTablaMovimientos', tablaMovimientos);
 		
     // El uso más simple es crear directivas para usar como código reutilizable
     function piePagina() {
@@ -57,7 +58,25 @@
 
     
     
-    
+    function tablaMovimientos(){
+        return {
+            templateUrl: './tpl-tabla-movimientos.html',
+            scope: {
+                movimientos: "=movs",
+                searchValue :"=searchvalue",
+                valorcorte : "@",
+                unaFuncion : "&"
+            },
+            controller : function(){
+                this.nombre='tecnocom';
+                this.valorcorte = 25;
+                this.otrafuncion = function(){
+
+                }
+            },
+            bindToController: true
+        }
+    }
     
     
     

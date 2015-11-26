@@ -1,0 +1,24 @@
+<table class="table">
+		<thead>
+			<tr>
+				<th><a href="" ng-click="campo = 'fecha'; sentido = !sentido ">Fecha</a>
+				</th>
+				<th>Tipo</th>
+				<th>Categoría</th>
+				<th><a href="" ng-click="campo = 'importe'; sentido = !sentido ">Importe</a>
+				</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="m in movimientos | abGranImporte:valorcorte | filter:searchValue | orderBy:campo:sentido"
+			ab-fila-movimiento
+			movimiento="m"
+			ab-seleccionado
+			>
+
+			</tr>
+		</tbody>
+	</table>
+<button ng-click="unaFuncion()">El Gran Botón que te pasas</button>
+<button ng-click="otrafuncion()">Otro Botón</button>
+{{valorcorte}}
