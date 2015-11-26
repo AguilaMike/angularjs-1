@@ -1,0 +1,48 @@
+<html ng-app="app">
+
+<head>
+    <title>Hola AngularJS</title>
+    <meta charset="utf-8" />
+    <meta lang="es" />
+    <meta name="description" content="Tutorial Componentes AngularJS" />
+    <meta name="author" content="Alberto Basalo @ Ágora Binaria" />
+    <meta name="application-name" content="Componentes" />
+    <meta name="Keywords" content="AngularJS, ejemplo, tutorial, curso, componentes" />
+    <link rel="author" href="https://plus.google.com/+AlbertoBasalo71" />
+    <script src="refs/angular.min.js"></script>
+</head>
+
+<body class="container-fluid" ng-init="cosas=[]">
+    <span>Nueva : </span>
+    <input ng-model="nueva">
+    <button ng-click="cosas.push({cosa:nueva, ok:true})">Add</button>
+    <lista
+        items="cosas">
+    </lista>
+    <script>
+        angular.module('app',['componentes']);
+
+        angular.module('componentes',[])
+            .directive('lista',function(){
+                return {
+                template:'<item ng-repeat="e in items" txt="{{e.cosa}}" ver="e.ok" cmd="e.ok=false"/>',
+                    scope:{
+                        items : "="
+                    }
+                }
+            })
+            .directive('item',function(){
+                return {
+                template:'<div>{{txt}}<button ng-if="ver" ng-click="cmd()">ok</button></div>',
+                    scope:{
+                        txt : "@",
+                        ver : "=",
+                        cmd : "&"
+                    }
+                }
+            })
+    </script>
+
+</body>
+
+</html>
