@@ -22,13 +22,17 @@
     <script>
         angular.module('app',['componentes']);
 
-        angular.module('componentes',[])
+        angular.module('componentes',['controladores']);
+
+        angular.module('componentes')
             .directive('lista',function(){
                 return {
-                template:'<item ng-repeat="e in items" txt="{{e.cosa}}" ver="e.ok" cmd="e.ok=false"/>',
+                    template:'<item ng-repeat="e in alias.items" txt="{{e.cosa}}" ver="e.ok" cmd="alias.ocultar(e)"/>',
                     scope:{
                         items : "="
-                    }
+                    },
+                    controller : 'ListaCtrl as alias',
+                    bindToController : true
                 }
             })
             .directive('item',function(){
@@ -40,7 +44,15 @@
                         cmd : "&"
                     }
                 }
-            })
+            });
+
+        var miModulo = angular.module('controladores', [])
+
+        miModulo.controller('ListaCtrl', function(){
+                this.ocultar = function(elemento){
+                    elemento.ok = false;
+                }
+            });
     </script>
 
 </body>
